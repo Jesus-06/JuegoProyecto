@@ -2,6 +2,7 @@ package com.sentinels.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 
 import com.badlogic.gdx.graphics.Texture;
@@ -11,12 +12,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class MainMenuScreen implements Screen {
 
 	final Sentinels sent;
-	
+	Music reproductor;
 	Texture texture;
 	
 	public MainMenuScreen(Sentinels sentinels) {
 		
 		this.sent = sentinels;
+		reproductor = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_fondo.mp3"));
+		reproductor.setLooping(true);
+		reproductor.play();
 		
 	}
 

@@ -70,6 +70,8 @@ public class MainMenuScreen implements Screen {
 
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				
+				reproductor.stop();
 				sent.setScreen(new PantallaJuego(sent));
 				dispose();
 				
@@ -108,7 +110,8 @@ public class MainMenuScreen implements Screen {
 	
 	private void poner(Actor a) {
 		
-		//a.setCenterPosition(Gdx);
+		a.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+		stage.addActor(a);
 		
 	}
 	

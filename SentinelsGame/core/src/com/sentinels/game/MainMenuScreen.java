@@ -81,8 +81,7 @@ public class MainMenuScreen implements Screen {
 
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-					
-				dispose();
+				
 				reproductor.stop();
 				b1.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
 				b2.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
@@ -104,7 +103,12 @@ public class MainMenuScreen implements Screen {
 		
 		stage.addActor(table);
 		Gdx.input.setInputProcessor(stage);
-		Gdx.input.setInputProcessor((InputProcessor) imgLogo);
+		
+	}
+	
+	private void poner(Actor a) {
+		
+		//a.setCenterPosition(Gdx);
 		
 	}
 	
@@ -130,6 +134,10 @@ public class MainMenuScreen implements Screen {
 		stage.draw();
 		stage.act(delta);
 		
+		sent.batch.begin();
+		sent.batch.draw(texLogo, 0, 0);
+		sent.batch.end();
+		
 	}
 
 	@Override
@@ -154,6 +162,9 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void dispose() {
+		
+		texture.dispose();
+		texLogo.dispose();
 		
 	}
 

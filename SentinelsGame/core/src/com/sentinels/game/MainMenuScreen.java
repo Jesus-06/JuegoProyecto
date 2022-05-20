@@ -4,10 +4,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -15,10 +15,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 
 public class MainMenuScreen implements Screen {
@@ -34,6 +36,9 @@ public class MainMenuScreen implements Screen {
 	Music reproductor, rep2;
 	Timer t1;
 	Image imgLogo;
+	Pixmap p1, p2;
+	TextureRegionDrawable trdLogo;
+	ImageButton btLogo;
 	
 	public MainMenuScreen(Sentinels sentinels) {
 		
@@ -46,11 +51,22 @@ public class MainMenuScreen implements Screen {
 	public void show() {
 		t1 = new Timer();
 		
-		texLogo = new Texture(Gdx.files.internal("logo_transparente.png"));
-		trLogo = new TextureRegion(texLogo, 600, 600);
+		p1 = new Pixmap(Gdx.files.internal("logo_transparente.png"));
+		p2 = new Pixmap(550, 500, p1.getFormat());
+		p2.drawPixmap(p1,
+		        0, 0, p1.getWidth(), p1.getHeight(),
+		        0, 0, p2.getWidth(), p2.getHeight()
+		);
+		texLogo = new Texture(p2);
+		p1.dispose();
+		p2.dispose();
+		trLogo = new TextureRegion(texLogo, 500, 400);
 		imgLogo = new Image(trLogo);
-		
 		sent.batch = new SpriteBatch();
+		trdLogo = new TextureRegionDrawable(trLogo);
+		btLogo = new ImageButton(trdLogo);
+		
+		
 		texture = new Texture(Gdx.files.internal("fondo.jpg"));
 		
 		reproductor = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_fondo.mp3"));
@@ -85,12 +101,13 @@ public class MainMenuScreen implements Screen {
 			public void changed(ChangeEvent event, Actor actor) {
 				
 				reproductor.stop();
-				b1.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
-				b2.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
-				b3.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
+				b1.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.7f)));
+				b2.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.7f)));
+				b3.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.7f)));
+				btLogo.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.7f)));
 				rep2.play();
 				
-				t1.schedule(new StopTask(), 2*1000);
+				t1.schedule(new StopTask(), (long) (1.5*1000));
 				
 				
 			}
@@ -106,18 +123,19 @@ public class MainMenuScreen implements Screen {
 		stage.addActor(table);
 		Gdx.input.setInputProcessor(stage);
 		
+		poner(btLogo);
 	}
 	
 	private void poner(Actor a) {
 		
-		a.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+		a.setPosition(690, 700);
+		
 		stage.addActor(a);
 		
 	}
 	
 	// Temporiazador
 	class StopTask extends TimerTask {
-    	
         public void run() {
             t1.cancel();
             Gdx.app.exit();
@@ -136,10 +154,6 @@ public class MainMenuScreen implements Screen {
 		
 		stage.draw();
 		stage.act(delta);
-		
-		sent.batch.begin();
-		sent.batch.draw(texLogo, 0, 0);
-		sent.batch.end();
 		
 	}
 

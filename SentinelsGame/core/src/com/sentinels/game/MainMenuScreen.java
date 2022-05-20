@@ -1,24 +1,39 @@
 package com.sentinels.game;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 
 public class MainMenuScreen implements Screen {
 
 	final Sentinels sent;
-	Texture texture;
+	
+	Texture texture, texLogo;
+	TextureRegion trLogo;
 	Stage stage;
 	TextButton b1,b2,b3;
 	Skin skin;
 	Table table;
+	Music reproductor, rep2;
+	Timer t1;
+	Image imgLogo;
 	
 	public MainMenuScreen(Sentinels sentinels) {
 		
@@ -26,10 +41,22 @@ public class MainMenuScreen implements Screen {
 		
 	}
 
+	// Creamos y cargamos los objeto del menu principal
 	@Override
 	public void show() {
+		t1 = new Timer();
+		
+		texLogo = new Texture(Gdx.files.internal("logo_transparente.png"));
+		trLogo = new TextureRegion(texLogo, 600, 600);
+		imgLogo = new Image(trLogo);
+		
 		sent.batch = new SpriteBatch();
 		texture = new Texture(Gdx.files.internal("fondo.jpg"));
+		
+		reproductor = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_fondo.mp3"));
+		rep2 = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_exit.mp3"));
+		reproductor.setLooping(true);
+		reproductor.play();
 		
 		stage = new Stage();
 		table = new Table();
@@ -39,6 +66,36 @@ public class MainMenuScreen implements Screen {
 		b2 = new TextButton("Cargar Juego", skin);
 		b3 = new TextButton("Salir", skin);
 		
+		b1.addListener(new ChangeListener(){
+
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				sent.setScreen(new PantallaJuego(sent));
+				dispose();
+				
+			}
+			
+		});
+		
+		b3.addListener(new ChangeListener() {
+
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+					
+				dispose();
+				reproductor.stop();
+				b1.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
+				b2.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
+				b3.addAction(Actions.parallel(Actions.moveBy(0, 700, 0.5f)));
+				rep2.play();
+				
+				t1.schedule(new StopTask(), 2*1000);
+				
+				
+			}
+			
+		});
+		
 		table.add(b1).padBottom(50).height(40).width(130);
 		table.row();
 		table.add(b2).height(40).width(130);
@@ -47,8 +104,19 @@ public class MainMenuScreen implements Screen {
 		
 		stage.addActor(table);
 		Gdx.input.setInputProcessor(stage);
+		Gdx.input.setInputProcessor((InputProcessor) imgLogo);
+		
 	}
-
+	
+	// Temporiazador
+	class StopTask extends TimerTask {
+    	
+        public void run() {
+            t1.cancel();
+            Gdx.app.exit();
+        }
+    }
+	
 	// Renderizar el fondo
 	@Override
 	public void render(float delta) {

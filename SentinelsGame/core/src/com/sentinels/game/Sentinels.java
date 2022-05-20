@@ -16,14 +16,8 @@ public class Sentinels extends Game{
 	public void create() {
 		batch = new SpriteBatch();
 		fuente = new BitmapFont();
-		MainMenuScreen menu = new MainMenuScreen(this);
-		PantallaJuego pantalla_juego = new PantallaJuego(this);
-		//setScreen(menu);
+		setScreen(new MainMenuScreen(this));	
 		
-		setScreen(pantalla_juego);
-
-		
-
 	}
 
 	// Renderizamos la aplicación

@@ -2,41 +2,50 @@ package PersonajePrincipal;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.sentinels.game.Animation;
 import com.sentinels.game.PantallaJuego;
 
-public class Night extends Animation{
+import java.util.Vector;
 
-	private float DX = 4; //Incremento en x,define desplazamiento en cada frame
-	private float DY=4; //Incremento en y
-	
-	private final float ALTO_MARGEN=20; //Grosor de la paredes arriba-abajo
-	private final float ANCHO_MARGEN =20; //Grosor de la raqueta
-	
-	public Night(Texture texture, float x, float y) {
-		super(texture, x, y);
+public class Night {
+
+	static final float ANCHO = .45f;
+	static final float ALTURA = .6f;
+
+	static final float ANCHO_DIBUJO = 1.3f;
+	static final float ALTURA_DIBUJO = 1.7f;
+
+	static final float WALK_FRAM_DURATION = 0.05f;
+
+	static final float WALK_SPEED = 3;
+	static final float JUMP_SPEED = 8;
+
+	boolean isJumping;
+	boolean isFalling;
+	boolean isWalking;
+	boolean isDucking;
+
+	float stateTime = 0;
+
+	Vector2 position;
+	Vector2 velocity;
+
+	public Night(float ancho, float alto){
+		position = new Vector2(ancho, alto);
+
+	};
+
+	public void update(Body body, float delta, float accelX){
+
 	}
-	
-	//Se llama desde el render del juego
-	public void dibujar (SpriteBatch batch) {
-		sprite.draw(batch);
+
+	public void jump(){
+
 	}
-	//Movimiento del peesonaje
-	public void mover() {
-		float xp = sprite.getX();
-		float yp = sprite.getY();
-		
-		//Prueba límites DERECHA-IZQUIERDA
-		if(xp>=PantallaJuego.ANCHO||xp<=0) {
-			DX=-DX; //Invierte el sentido
-		}
-		//Prueba lmites ARRIBA-ABAJO
-		if(yp>=PantallaJuego.ALTO||yp<=0) {
-			DY=-DY; 
-		}
-		
-		//Poner la pelota en la nueva posición
-		sprite.setX(xp+DX);
-		sprite.setY(yp+DY);
+
+	public void duck(){
+
 	}
 }

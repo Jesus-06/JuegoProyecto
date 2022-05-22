@@ -96,7 +96,7 @@ public class PantallaJuego implements Screen {
 	@Override
 	public void show() {
 		Night_standBy = new Texture(Gdx.files.internal("Night/standBy.png"));
-		Night = new Night(Night_standBy,ANCHO/2,ALTO/2);
+		//Night = new Night(Night_standBy,ANCHO/2,ALTO/2);
 		textura_fondo = new Texture(Gdx.files.internal("fondo_juego.jpg"));
 		
 	}

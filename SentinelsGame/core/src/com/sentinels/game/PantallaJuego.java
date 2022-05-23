@@ -6,10 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -28,15 +25,12 @@ public class PantallaJuego implements Screen {
 	public static final float ANCHO = 1200;
 	public static final float ALTO = 800;
 
+	private Texture HUD;
+	private Pixmap p1,p2;
 	Sentinels sent;
-	Viewport vista;
-	//Administra los trazos sobre la pantalla
-	SpriteBatch batch;
-	//Texturas
-	Texture Night_standBy;
-	Texture textura_fondo;
 
-	Rectangle Night_hitbox;
+	//Administra los trazos sobre la pantalla
+	Texture textura_fondo;
 
 	//Objetos en el juego
 	Night night;
@@ -48,7 +42,6 @@ public class PantallaJuego implements Screen {
 	public PantallaJuego(Sentinels sent) {
 
 		this.sent = sent;
-		batch = new SpriteBatch();
 
 		AssetsNight.load();
 
@@ -110,7 +103,7 @@ public class PantallaJuego implements Screen {
 
 		reproductor = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_fondo.mp3"));
 		reproductor.setLooping(true);
-		//reproductor.play();
+		reproductor.play();
 
 		this.sent.camara = new OrthographicCamera();
 		this.sent.camara.setToOrtho(false, 1920, 1080);
@@ -120,6 +113,33 @@ public class PantallaJuego implements Screen {
 
 	@Override
 	public void render(float delta) {
+
+		String vidas="X "+Night.Vidas;
+		String puntuacion="X "+Night.puntuacion;
+
+		p1 = new Pixmap(Gdx.files.internal("Night/Barra_de_vida/1.png"));
+		p2 = new Pixmap(510, 350, p1.getFormat());
+		p2.drawPixmap(p1,
+				0, 0, p1.getWidth(), p1.getHeight(),
+				0, 0, p2.getWidth(), p2.getHeight()
+		);
+		HUD = new Texture(p2);
+		p1.dispose();
+		p2.dispose();
+
+		p1 = new Pixmap(Gdx.files.internal("fondo_juego.jpg"));
+		p2 = new Pixmap(1920, 1080, p1.getFormat());
+		p2.drawPixmap(p1,
+				0, 0, p1.getWidth(), p1.getHeight(),
+				0, 0, p2.getWidth(), p2.getHeight()
+		);
+		textura_fondo = new Texture(p2);
+
+		p1.dispose();
+		p2.dispose();
+
+		Gdx.gl.glClearColor(0,0,0,1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		float accelX = 0;
 
@@ -153,11 +173,15 @@ public class PantallaJuego implements Screen {
 
 		this.sent.camara.update();
 
-		batch.setProjectionMatrix(this.sent.camara.combined);
-		batch.begin();
-		batch.draw(textura_fondo,0,0);
+		sent.batch.setProjectionMatrix(this.sent.camara.combined);
+		sent.batch.begin();
+		sent.batch.draw(textura_fondo,0,0);
+		sent.batch.draw(HUD,0,750);
+		sent.fuente.draw(sent.batch, "NIGHT ", 100, 1000);
+		sent.fuente.draw(sent.batch,vidas , 140, 900);
+		sent.fuente.draw(sent.batch,puntuacion, 250, 900);
 		drawNight();
-		batch.end();
+		sent.batch.end();
 		//renderer.render(world, sent.camara.combined);
 	}
 
@@ -177,7 +201,7 @@ public class PantallaJuego implements Screen {
 
 		keyFrame.setPosition(night.position.x - 100/2, night.position.y - 200/2);
 		keyFrame.setSize(100,200);
-		keyFrame.draw(batch);
+		keyFrame.draw(sent.batch);
 
 	}
 

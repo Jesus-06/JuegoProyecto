@@ -18,6 +18,8 @@ public class Night {
 
 	public static final float WALK_SPEED = 800;
 	public static final float JUMP_SPEED = 3000;
+    public static int Vidas=3;
+	public static int puntuacion;
 
 	public boolean isJumping;
 	public boolean isFalling;
@@ -38,8 +40,8 @@ public class Night {
 	}
 
 	public void update(Body body, float delta, float accelX){
-		position.x = body.getPosition().x;
-		position.y = body.getPosition().y;
+		position.x = body.getPosition().x+10;
+		position.y = body.getPosition().y+10;
 
 		velocity = body.getLinearVelocity();
 

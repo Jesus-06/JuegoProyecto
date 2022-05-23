@@ -52,7 +52,7 @@ public class PantallaJuego implements Screen {
 
 		AssetsNight.load();
 
-		Vector2 gravity = new Vector2(0, -100);
+		Vector2 gravity = new Vector2(0, -80);
 
 		world = new World(gravity, true);
 		renderer = new Box2DDebugRenderer();

@@ -7,14 +7,14 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class AssetsNight {
 
-    public static Sprite duck;
-    public static Sprite fall;
-    public static Sprite idle;
-    public static Sprite jump;
+    static Sprite duck;
+    static Sprite fall;
+    static Sprite idle;
+    static Sprite jump;
 
-    public static Animation<Sprite> walk;
+    static Animation<Sprite> walk;
 
-    public static TextureAtlas atlas;
+    static TextureAtlas atlas;
 
     public static void load(){
         atlas = new TextureAtlas(Gdx.files.internal("Night/PersonajePrincipal.txt"));
@@ -24,7 +24,7 @@ public class AssetsNight {
         idle = atlas.createSprite("Quieto1");
         jump = atlas.createSprite("Salto1");
 
-        walk = new Animation<Sprite>(Night.WALK_FRAME_DURATION,
+        walk = new Animation<Sprite>(Night.WALK_FRAM_DURATION,
                 atlas.createSprite("Correr1"),
                 atlas.createSprite("Correr2"),
                 atlas.createSprite("Correr3"),

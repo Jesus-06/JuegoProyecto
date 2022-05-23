@@ -1,6 +1,7 @@
 package com.sentinels.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -16,7 +17,7 @@ public class Sentinels extends Game{
 	public void create() {
 		batch = new SpriteBatch();
 		fuente = new BitmapFont();
-		setScreen(new MainMenuScreen(this));	
+		setScreen((Screen) new MainMenuScreen(this));
 		
 	}
 

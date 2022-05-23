@@ -1,0 +1,145 @@
+
+items.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+items
+  rotate: false
+  xy: 1, 58
+  size: 64, 55
+  orig: 64, 55
+  offset: 0, 0
+  index: 12
+items
+  rotate: false
+  xy: 1, 1
+  size: 64, 55
+  orig: 64, 55
+  offset: 0, 0
+  index: 14
+items
+  rotate: false
+  xy: 67, 59
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 3
+items
+  rotate: false
+  xy: 67, 3
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 5
+items
+  rotate: false
+  xy: 133, 59
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 8
+items
+  rotate: false
+  xy: 133, 3
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 10
+items
+  rotate: false
+  xy: 199, 58
+  size: 63, 55
+  orig: 63, 55
+  offset: 0, 0
+  index: 13
+items
+  rotate: false
+  xy: 264, 58
+  size: 63, 55
+  orig: 63, 55
+  offset: 0, 0
+  index: 15
+items
+  rotate: false
+  xy: 329, 59
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 16
+items
+  rotate: false
+  xy: 395, 59
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 18
+items
+  rotate: false
+  xy: 461, 59
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 20
+items
+  rotate: false
+  xy: 527, 59
+  size: 64, 54
+  orig: 64, 54
+  offset: 0, 0
+  index: 22
+items
+  rotate: false
+  xy: 593, 59
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 4
+items
+  rotate: false
+  xy: 658, 59
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 6
+items
+  rotate: false
+  xy: 723, 59
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 9
+items
+  rotate: false
+  xy: 788, 59
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 11
+items
+  rotate: false
+  xy: 853, 59
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 17
+items
+  rotate: false
+  xy: 918, 59
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 19
+items
+  rotate: false
+  xy: 199, 2
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 21
+items
+  rotate: false
+  xy: 264, 2
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: 23

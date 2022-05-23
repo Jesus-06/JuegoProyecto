@@ -1,0 +1,47 @@
+
+atalanta1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+atalanta_fase_uno
+  rotate: false
+  xy: 1, 137
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: 1
+atalanta_fase_uno
+  rotate: false
+  xy: 1, 69
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: 2
+atalanta_fase_uno
+  rotate: false
+  xy: 48, 137
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: 3
+atalanta_fase_uno
+  rotate: false
+  xy: 1, 1
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: 4
+atalanta_fase_uno
+  rotate: false
+  xy: 48, 69
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: 5
+atalanta_fase_uno
+  rotate: false
+  xy: 48, 1
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: 6

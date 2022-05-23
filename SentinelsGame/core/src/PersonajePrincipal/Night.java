@@ -22,6 +22,9 @@ public class Night {
 	static final float WALK_SPEED = 3;
 	static final float JUMP_SPEED = 8;
 
+	static final public int puntuacion=0;
+	static final public int Vidas=3;
+
 	boolean isJumping;
 	boolean isFalling;
 	boolean isWalking;

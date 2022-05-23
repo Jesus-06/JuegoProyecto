@@ -1,0 +1,215 @@
+
+ataque_atalanta.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Ataque_atalanta
+  rotate: false
+  xy: 1, 116
+  size: 60, 113
+  orig: 60, 113
+  offset: 0, 0
+  index: 13
+Ataque_atalanta
+  rotate: false
+  xy: 1, 1
+  size: 60, 113
+  orig: 60, 113
+  offset: 0, 0
+  index: 14
+Ataque_atalanta
+  rotate: false
+  xy: 63, 116
+  size: 60, 113
+  orig: 60, 113
+  offset: 0, 0
+  index: 15
+Ataque_atalanta
+  rotate: false
+  xy: 63, 1
+  size: 60, 113
+  orig: 60, 113
+  offset: 0, 0
+  index: 16
+Ataque_atalanta
+  rotate: false
+  xy: 125, 116
+  size: 60, 113
+  orig: 60, 113
+  offset: 0, 0
+  index: 17
+Ataque_atalanta
+  rotate: false
+  xy: 125, 1
+  size: 60, 113
+  orig: 60, 113
+  offset: 0, 0
+  index: 18
+Ataque_atalanta
+  rotate: false
+  xy: 187, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 1
+Ataque_atalanta
+  rotate: false
+  xy: 187, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 2
+Ataque_atalanta
+  rotate: false
+  xy: 249, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 3
+Ataque_atalanta
+  rotate: false
+  xy: 249, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 4
+Ataque_atalanta
+  rotate: false
+  xy: 311, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 5
+Ataque_atalanta
+  rotate: false
+  xy: 311, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 6
+Ataque_atalanta
+  rotate: false
+  xy: 373, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 7
+Ataque_atalanta
+  rotate: false
+  xy: 373, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 8
+Ataque_atalanta
+  rotate: false
+  xy: 435, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 9
+Ataque_atalanta
+  rotate: false
+  xy: 435, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 10
+Ataque_atalanta
+  rotate: false
+  xy: 497, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 11
+Ataque_atalanta
+  rotate: false
+  xy: 497, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 12
+Ataque_atalanta
+  rotate: false
+  xy: 559, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 19
+Ataque_atalanta
+  rotate: false
+  xy: 559, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 20
+Ataque_atalanta
+  rotate: false
+  xy: 621, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 21
+Ataque_atalanta
+  rotate: false
+  xy: 621, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 22
+Ataque_atalanta
+  rotate: false
+  xy: 683, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 23
+Ataque_atalanta
+  rotate: false
+  xy: 683, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 24
+Ataque_atalanta
+  rotate: false
+  xy: 745, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 25
+Ataque_atalanta
+  rotate: false
+  xy: 745, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 26
+Ataque_atalanta
+  rotate: false
+  xy: 807, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 27
+Ataque_atalanta
+  rotate: false
+  xy: 807, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 28
+Ataque_atalanta
+  rotate: false
+  xy: 869, 117
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 29
+Ataque_atalanta
+  rotate: false
+  xy: 869, 3
+  size: 60, 112
+  orig: 60, 112
+  offset: 0, 0
+  index: 30

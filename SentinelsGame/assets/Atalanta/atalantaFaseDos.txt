@@ -1,0 +1,174 @@
+
+atalantaFaseDos.png
+size: 218, 216
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+atalanta_fase_dos1
+  rotate: false
+  xy: 103, 166
+  size: 30, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos10
+  rotate: false
+  xy: 2, 165
+  size: 32, 49
+  orig: 32, 49
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos11
+  rotate: false
+  xy: 2, 12
+  size: 30, 49
+  orig: 31, 49
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos12
+  rotate: false
+  xy: 167, 165
+  size: 30, 49
+  orig: 31, 49
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos13
+  rotate: false
+  xy: 66, 115
+  size: 29, 49
+  orig: 31, 49
+  offset: 1, 0
+  index: -1
+atalanta_fase_dos14
+  rotate: false
+  xy: 35, 114
+  size: 29, 49
+  orig: 32, 49
+  offset: 1, 0
+  index: -1
+atalanta_fase_dos15
+  rotate: false
+  xy: 2, 114
+  size: 31, 49
+  orig: 31, 49
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos16
+  rotate: false
+  xy: 135, 165
+  size: 30, 49
+  orig: 31, 49
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos17
+  rotate: false
+  xy: 129, 115
+  size: 29, 48
+  orig: 31, 48
+  offset: 2, 0
+  index: -1
+atalanta_fase_dos18
+  rotate: false
+  xy: 66, 15
+  size: 29, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos19
+  rotate: false
+  xy: 129, 65
+  size: 26, 48
+  orig: 31, 48
+  offset: 3, 0
+  index: -1
+atalanta_fase_dos2
+  rotate: false
+  xy: 36, 166
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos20
+  rotate: false
+  xy: 97, 116
+  size: 30, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos21
+  rotate: false
+  xy: 157, 65
+  size: 26, 48
+  orig: 31, 48
+  offset: 3, 0
+  index: -1
+atalanta_fase_dos22
+  rotate: false
+  xy: 185, 65
+  size: 26, 48
+  orig: 32, 48
+  offset: 3, 0
+  index: -1
+atalanta_fase_dos23
+  rotate: false
+  xy: 189, 115
+  size: 27, 48
+  orig: 31, 48
+  offset: 2, 0
+  index: -1
+atalanta_fase_dos24
+  rotate: false
+  xy: 160, 115
+  size: 27, 48
+  orig: 31, 48
+  offset: 2, 0
+  index: -1
+atalanta_fase_dos3
+  rotate: false
+  xy: 34, 64
+  size: 30, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos4
+  rotate: false
+  xy: 97, 66
+  size: 30, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos5
+  rotate: false
+  xy: 97, 16
+  size: 29, 48
+  orig: 31, 48
+  offset: 1, 0
+  index: -1
+atalanta_fase_dos6
+  rotate: false
+  xy: 66, 65
+  size: 29, 48
+  orig: 32, 48
+  offset: 1, 0
+  index: -1
+atalanta_fase_dos7
+  rotate: false
+  xy: 70, 166
+  size: 31, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos8
+  rotate: false
+  xy: 34, 14
+  size: 30, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+atalanta_fase_dos9
+  rotate: false
+  xy: 2, 63
+  size: 30, 49
+  orig: 31, 49
+  offset: 0, 0
+  index: -1

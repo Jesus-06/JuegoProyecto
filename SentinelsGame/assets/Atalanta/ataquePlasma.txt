@@ -1,0 +1,139 @@
+
+ataquePlasma.png
+size: 848, 846
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+bola-de-plasma1
+  rotate: false
+  xy: 743, 684
+  size: 103, 160
+  orig: 191, 188
+  offset: 47, 0
+  index: -1
+bola-de-plasma10
+  rotate: false
+  xy: 2, 466
+  size: 184, 188
+  orig: 191, 188
+  offset: 4, 0
+  index: -1
+bola-de-plasma11
+  rotate: false
+  xy: 2, 656
+  size: 184, 188
+  orig: 191, 188
+  offset: 5, 0
+  index: -1
+bola-de-plasma12
+  rotate: false
+  xy: 188, 656
+  size: 184, 188
+  orig: 192, 188
+  offset: 6, 0
+  index: -1
+bola-de-plasma13
+  rotate: false
+  xy: 374, 656
+  size: 182, 188
+  orig: 191, 188
+  offset: 7, 0
+  index: -1
+bola-de-plasma14
+  rotate: false
+  xy: 2, 276
+  size: 184, 188
+  orig: 191, 188
+  offset: 7, 0
+  index: -1
+bola-de-plasma15
+  rotate: false
+  xy: 558, 664
+  size: 183, 180
+  orig: 191, 188
+  offset: 4, 8
+  index: -1
+bola-de-plasma16
+  rotate: false
+  xy: 371, 474
+  size: 184, 180
+  orig: 191, 188
+  offset: 5, 8
+  index: -1
+bola-de-plasma17
+  rotate: false
+  xy: 182, 93
+  size: 184, 179
+  orig: 192, 188
+  offset: 6, 9
+  index: -1
+bola-de-plasma18
+  rotate: false
+  xy: 368, 94
+  size: 182, 178
+  orig: 191, 188
+  offset: 7, 10
+  index: -1
+bola-de-plasma19
+  rotate: false
+  xy: 558, 485
+  size: 180, 177
+  orig: 191, 188
+  offset: 9, 11
+  index: -1
+bola-de-plasma2
+  rotate: false
+  xy: 710, 124
+  size: 131, 175
+  orig: 192, 188
+  offset: 32, 0
+  index: -1
+bola-de-plasma3
+  rotate: false
+  xy: 700, 301
+  size: 144, 182
+  orig: 191, 188
+  offset: 26, 0
+  index: -1
+bola-de-plasma4
+  rotate: false
+  xy: 552, 93
+  size: 156, 188
+  orig: 191, 188
+  offset: 21, 0
+  index: -1
+bola-de-plasma5
+  rotate: false
+  xy: 535, 283
+  size: 163, 189
+  orig: 191, 189
+  offset: 14, 0
+  index: -1
+bola-de-plasma6
+  rotate: false
+  xy: 364, 274
+  size: 169, 189
+  orig: 191, 189
+  offset: 12, 0
+  index: -1
+bola-de-plasma7
+  rotate: false
+  xy: 188, 274
+  size: 174, 189
+  orig: 192, 189
+  offset: 11, 0
+  index: -1
+bola-de-plasma8
+  rotate: false
+  xy: 2, 85
+  size: 178, 189
+  orig: 191, 189
+  offset: 9, 0
+  index: -1
+bola-de-plasma9
+  rotate: false
+  xy: 188, 465
+  size: 181, 189
+  orig: 191, 189
+  offset: 8, 0
+  index: -1

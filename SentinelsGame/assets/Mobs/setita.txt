@@ -1,173 +1,174 @@
 
-enemigo_normal.png
+setita.png
+size: 366, 364
 format: RGBA8888
-filter: Nearest,Nearest
+filter: Nearest, Nearest
 repeat: none
 enemigo-normal
   rotate: false
-  xy: 1, 189
-  size: 163, 66
-  orig: 163, 66
-  offset: 0, 0
-  index: 19
-enemigo-normal
-  rotate: false
-  xy: 1, 149
-  size: 153, 38
-  orig: 153, 38
-  offset: 0, 0
-  index: 36
-enemigo-normal
-  rotate: false
-  xy: 166, 219
+  xy: 2, 326
   size: 114, 36
   orig: 114, 36
   offset: 0, 0
   index: 22
 enemigo-normal
   rotate: false
-  xy: 1, 111
+  xy: 118, 326
   size: 113, 36
   orig: 113, 36
   offset: 0, 0
   index: 21
 enemigo-normal
   rotate: false
-  xy: 282, 219
+  xy: 233, 326
   size: 113, 36
   orig: 113, 36
   offset: 0, 0
   index: 23
 enemigo-normal
   rotate: false
-  xy: 1, 70
-  size: 108, 39
-  orig: 108, 39
+  xy: 2, 286
+  size: 153, 38
+  orig: 153, 38
   offset: 0, 0
-  index: 25
+  index: 36
 enemigo-normal
   rotate: false
-  xy: 1, 1
-  size: 60, 67
-  orig: 60, 67
-  offset: 0, 0
-  index: 11
-enemigo-normal
-  rotate: false
-  xy: 397, 216
+  xy: 157, 285
   size: 108, 39
   orig: 108, 39
   offset: 0, 0
   index: 26
 enemigo-normal
   rotate: false
-  xy: 63, 2
-  size: 58, 66
-  orig: 58, 66
-  offset: 0, 0
-  index: 3
-enemigo-normal
-  rotate: false
-  xy: 166, 153
-  size: 82, 64
-  orig: 82, 64
-  offset: 0, 0
-  index: 29
-enemigo-normal
-  rotate: false
-  xy: 250, 153
-  size: 82, 64
-  orig: 82, 64
-  offset: 0, 0
-  index: 31
-enemigo-normal
-  rotate: false
-  xy: 334, 151
-  size: 59, 66
-  orig: 59, 66
-  offset: 0, 0
-  index: 5
-enemigo-normal
-  rotate: false
-  xy: 395, 150
-  size: 81, 64
-  orig: 81, 64
-  offset: 0, 0
-  index: 30
-enemigo-normal
-  rotate: false
-  xy: 116, 97
+  xy: 267, 274
   size: 60, 50
   orig: 60, 50
   offset: 0, 0
   index: 1
 enemigo-normal
   rotate: false
-  xy: 178, 87
-  size: 81, 64
-  orig: 81, 64
+  xy: 2, 245
+  size: 108, 39
+  orig: 108, 39
   offset: 0, 0
-  index: 32
+  index: 25
 enemigo-normal
   rotate: false
-  xy: 261, 89
-  size: 62, 62
-  orig: 62, 62
+  xy: 112, 225
+  size: 60, 58
+  orig: 60, 58
   offset: 0, 0
-  index: 12
+  index: 9
 enemigo-normal
   rotate: false
-  xy: 325, 87
-  size: 62, 62
-  orig: 62, 62
-  offset: 0, 0
-  index: 13
-enemigo-normal
-  rotate: false
-  xy: 389, 86
+  xy: 174, 221
   size: 62, 62
   orig: 62, 62
   offset: 0, 0
   index: 14
 enemigo-normal
   rotate: false
-  xy: 453, 82
-  size: 58, 66
-  orig: 58, 66
-  offset: 0, 0
-  index: 4
-enemigo-normal
-  rotate: false
-  xy: 261, 25
-  size: 62, 62
-  orig: 62, 62
-  offset: 0, 0
-  index: 15
-enemigo-normal
-  rotate: false
-  xy: 325, 23
+  xy: 238, 210
   size: 62, 62
   orig: 62, 62
   offset: 0, 0
   index: 16
 enemigo-normal
   rotate: false
-  xy: 389, 18
+  xy: 302, 210
+  size: 62, 62
+  orig: 62, 62
+  offset: 0, 0
+  index: 13
+enemigo-normal
+  rotate: false
+  xy: 2, 181
+  size: 62, 62
+  orig: 62, 62
+  offset: 0, 0
+  index: 15
+enemigo-normal
+  rotate: false
+  xy: 66, 161
+  size: 62, 62
+  orig: 62, 62
+  offset: 0, 0
+  index: 12
+enemigo-normal
+  rotate: false
+  xy: 130, 155
+  size: 81, 64
+  orig: 81, 64
+  offset: 0, 0
+  index: 30
+enemigo-normal
+  rotate: false
+  xy: 213, 144
+  size: 81, 64
+  orig: 81, 64
+  offset: 0, 0
+  index: 32
+enemigo-normal
+  rotate: false
+  xy: 296, 142
   size: 58, 66
   orig: 58, 66
   offset: 0, 0
   index: 6
 enemigo-normal
   rotate: false
-  xy: 449, 14
+  xy: 2, 113
+  size: 58, 66
+  orig: 58, 66
+  offset: 0, 0
+  index: 3
+enemigo-normal
+  rotate: false
+  xy: 62, 93
+  size: 59, 66
+  orig: 59, 66
+  offset: 0, 0
+  index: 5
+enemigo-normal
+  rotate: false
+  xy: 123, 89
+  size: 82, 64
+  orig: 82, 64
+  offset: 0, 0
+  index: 29
+enemigo-normal
+  rotate: false
+  xy: 207, 78
+  size: 82, 64
+  orig: 82, 64
+  offset: 0, 0
+  index: 31
+enemigo-normal
+  rotate: false
+  xy: 291, 74
   size: 58, 66
   orig: 58, 66
   offset: 0, 0
   index: 7
 enemigo-normal
   rotate: false
-  xy: 123, 27
-  size: 60, 58
-  orig: 60, 58
+  xy: 2, 45
+  size: 58, 66
+  orig: 58, 66
   offset: 0, 0
-  index: 9
+  index: 4
+enemigo-normal
+  rotate: false
+  xy: 62, 20
+  size: 60, 67
+  orig: 60, 67
+  offset: 0, 0
+  index: 11
+enemigo-normal
+  rotate: false
+  xy: 124, 10
+  size: 163, 66
+  orig: 163, 66
+  offset: 0, 0
+  index: 19

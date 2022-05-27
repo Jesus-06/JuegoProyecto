@@ -1,0 +1,62 @@
+
+atalantaFaseCinco.png
+size: 196, 194
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+atalanta_fase_cinco1
+  rotate: false
+  xy: 2, 135
+  size: 63, 57
+  orig: 63, 57
+  offset: 0, 0
+  index: -1
+atalanta_fase_cinco2
+  rotate: false
+  xy: 67, 135
+  size: 62, 57
+  orig: 62, 57
+  offset: 0, 0
+  index: -1
+atalanta_fase_cinco3
+  rotate: false
+  xy: 2, 76
+  size: 63, 57
+  orig: 63, 57
+  offset: 0, 0
+  index: -1
+atalanta_fase_cinco4
+  rotate: false
+  xy: 2, 17
+  size: 62, 57
+  orig: 62, 57
+  offset: 0, 0
+  index: -1
+atalanta_fase_cinco5
+  rotate: false
+  xy: 131, 139
+  size: 63, 53
+  orig: 63, 56
+  offset: 0, 3
+  index: -1
+atalanta_fase_cinco6
+  rotate: false
+  xy: 132, 84
+  size: 62, 53
+  orig: 62, 56
+  offset: 0, 3
+  index: -1
+atalanta_fase_cinco7
+  rotate: false
+  xy: 67, 80
+  size: 63, 53
+  orig: 63, 56
+  offset: 0, 3
+  index: -1
+atalanta_fase_cinco8
+  rotate: false
+  xy: 67, 25
+  size: 62, 53
+  orig: 62, 56
+  offset: 0, 3
+  index: -1

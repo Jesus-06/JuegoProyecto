@@ -1,0 +1,62 @@
+
+atalantaFaseCuatro.png
+size: 1024, 128
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+atalanta_fase_cuatro1
+  rotate: false
+  xy: 197, 2
+  size: 63, 69
+  orig: 63, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro2
+  rotate: false
+  xy: 326, 2
+  size: 62, 69
+  orig: 62, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro3
+  rotate: false
+  xy: 2, 2
+  size: 63, 69
+  orig: 63, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro4
+  rotate: false
+  xy: 390, 2
+  size: 62, 69
+  orig: 62, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro5
+  rotate: false
+  xy: 67, 2
+  size: 63, 69
+  orig: 63, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro6
+  rotate: false
+  xy: 454, 2
+  size: 62, 69
+  orig: 62, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro7
+  rotate: false
+  xy: 132, 2
+  size: 63, 69
+  orig: 63, 69
+  offset: 0, 0
+  index: -1
+atalanta_fase_cuatro8
+  rotate: false
+  xy: 262, 2
+  size: 62, 69
+  orig: 62, 69
+  offset: 0, 0
+  index: -1

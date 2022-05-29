@@ -45,6 +45,7 @@ public class Night {
 
 		velocity = body.getLinearVelocity();
 
+
 		if(didDuck){
 			isDucking = true;
 			didDuck = false;

@@ -17,7 +17,7 @@ public class AssetsNight {
     static TextureAtlas atlas;
 
     public static void load(){
-        atlas = new TextureAtlas(Gdx.files.internal("Night/PersonajePrincipal.txt"));
+        atlas = new TextureAtlas(Gdx.files.internal("Night/edicion_Jesus.txt"));
 
         duck = atlas.createSprite("");
         fall = atlas.createSprite("Salto5");
@@ -34,9 +34,7 @@ public class AssetsNight {
                 atlas.createSprite("Correr7"),
                 atlas.createSprite("Correr8"),
                 atlas.createSprite("Correr9"));
-
     }
-
     public static void dispose(){
 
     }

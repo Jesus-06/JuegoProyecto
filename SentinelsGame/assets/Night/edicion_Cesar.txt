@@ -1,0 +1,181 @@
+
+edicion_Cesar.png
+size: 615, 614
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+ataque1
+  rotate: false
+  xy: 465, 338
+  size: 94, 132
+  orig: 148, 178
+  offset: 0, 27
+  index: -1
+ataque2
+  rotate: false
+  xy: 458, 202
+  size: 91, 134
+  orig: 148, 178
+  offset: 5, 27
+  index: -1
+ataque3
+  rotate: false
+  xy: 107, 337
+  size: 87, 136
+  orig: 148, 178
+  offset: 9, 27
+  index: -1
+ataque4
+  rotate: false
+  xy: 111, 476
+  size: 100, 136
+  orig: 149, 178
+  offset: 13, 27
+  index: -1
+ataque5
+  rotate: false
+  xy: 186, 197
+  size: 85, 138
+  orig: 148, 178
+  offset: 17, 27
+  index: -1
+ataque6
+  rotate: false
+  xy: 382, 338
+  size: 81, 139
+  orig: 148, 178
+  offset: 21, 27
+  index: -1
+ataque7
+  rotate: false
+  xy: 2, 197
+  size: 94, 138
+  orig: 148, 178
+  offset: 25, 27
+  index: -1
+ataque8
+  rotate: false
+  xy: 273, 198
+  size: 90, 136
+  orig: 148, 178
+  offset: 30, 27
+  index: -1
+bloqueo1
+  rotate: false
+  xy: 311, 479
+  size: 95, 133
+  orig: 145, 154
+  offset: 11, 14
+  index: -1
+bloqueo2
+  rotate: false
+  xy: 2, 337
+  size: 103, 136
+  orig: 146, 154
+  offset: 18, 14
+  index: -1
+bloqueo3
+  rotate: false
+  xy: 2, 475
+  size: 107, 137
+  orig: 145, 154
+  offset: 25, 14
+  index: -1
+muerte1
+  rotate: false
+  xy: 213, 476
+  size: 96, 136
+  orig: 148, 177
+  offset: 0, 29
+  index: -1
+muerte2
+  rotate: false
+  xy: 373, 74
+  size: 98, 123
+  orig: 148, 177
+  offset: 5, 29
+  index: -1
+muerte3
+  rotate: false
+  xy: 408, 501
+  size: 116, 111
+  orig: 148, 177
+  offset: 9, 29
+  index: -1
+muerte4
+  rotate: false
+  xy: 473, 2
+  size: 118, 98
+  orig: 149, 177
+  offset: 13, 29
+  index: -1
+muerte5
+  rotate: false
+  xy: 473, 102
+  size: 120, 98
+  orig: 148, 177
+  offset: 17, 29
+  index: -1
+quieto1
+  rotate: false
+  xy: 196, 341
+  size: 94, 133
+  orig: 148, 177
+  offset: 0, 25
+  index: -1
+quieto2
+  rotate: false
+  xy: 98, 57
+  size: 92, 134
+  orig: 148, 177
+  offset: 5, 25
+  index: -1
+quieto3
+  rotate: false
+  xy: 365, 199
+  size: 91, 135
+  orig: 148, 177
+  offset: 9, 25
+  index: -1
+quieto4
+  rotate: false
+  xy: 2, 61
+  size: 94, 134
+  orig: 149, 177
+  offset: 13, 25
+  index: -1
+saltar1
+  rotate: false
+  xy: 98, 193
+  size: 86, 142
+  orig: 148, 178
+  offset: 0, 21
+  index: -1
+saltar2
+  rotate: false
+  xy: 526, 472
+  size: 87, 140
+  orig: 148, 178
+  offset: 5, 21
+  index: -1
+saltar3
+  rotate: false
+  xy: 192, 58
+  size: 87, 137
+  orig: 148, 178
+  offset: 9, 21
+  index: -1
+saltar4
+  rotate: false
+  xy: 292, 336
+  size: 88, 138
+  orig: 149, 178
+  offset: 13, 21
+  index: -1
+saltar5
+  rotate: false
+  xy: 281, 60
+  size: 90, 136
+  orig: 148, 178
+  offset: 17, 21
+  index: -1

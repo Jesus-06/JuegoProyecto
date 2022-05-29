@@ -39,6 +39,8 @@ public class PantallaJuego implements Screen {
 	Box2DDebugRenderer renderer;
 	Array<Body> arrBoddies;
 
+	String vidas, puntuacion;
+
 	public PantallaJuego(Sentinels sent) {
 
 		this.sent = sent;
@@ -99,7 +101,7 @@ public class PantallaJuego implements Screen {
 	@Override
 	public void show() {
 
-		textura_fondo = new Texture(Gdx.files.internal("fondo_juego.jpg"));
+		textura_fondo = new Texture(Gdx.files.internal("fondo_juego.png"));
 
 		reproductor = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_fondo.mp3"));
 		reproductor.setLooping(true);
@@ -108,14 +110,8 @@ public class PantallaJuego implements Screen {
 		this.sent.camara = new OrthographicCamera();
 		this.sent.camara.setToOrtho(false, 1920, 1080);
 
-
-	}
-
-	@Override
-	public void render(float delta) {
-
-		String vidas="X "+Night.Vidas;
-		String puntuacion="X "+Night.puntuacion;
+		vidas ="X "+Night.Vidas;
+		puntuacion ="X "+Night.puntuacion;
 
 		p1 = new Pixmap(Gdx.files.internal("Night/Barra_de_vida/1.png"));
 		p2 = new Pixmap(510, 350, p1.getFormat());
@@ -127,16 +123,10 @@ public class PantallaJuego implements Screen {
 		p1.dispose();
 		p2.dispose();
 
-		p1 = new Pixmap(Gdx.files.internal("fondo_juego.jpg"));
-		p2 = new Pixmap(1920, 1080, p1.getFormat());
-		p2.drawPixmap(p1,
-				0, 0, p1.getWidth(), p1.getHeight(),
-				0, 0, p2.getWidth(), p2.getHeight()
-		);
-		textura_fondo = new Texture(p2);
+	}
 
-		p1.dispose();
-		p2.dispose();
+	@Override
+	public void render(float delta) {
 
 		Gdx.gl.glClearColor(0,0,0,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

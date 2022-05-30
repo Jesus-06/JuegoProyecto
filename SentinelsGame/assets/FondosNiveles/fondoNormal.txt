@@ -1,0 +1,90 @@
+
+fondoNormal.png
+size: 1985, 1985
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Layer_0000
+  rotate: false
+  xy: 2, 37
+  size: 928, 77
+  orig: 928, 793
+  offset: 0, 0
+  index: 9
+Layer_0001
+  rotate: false
+  xy: 932, 404
+  size: 928, 70
+  orig: 928, 793
+  offset: 0, 0
+  index: 8
+Layer_0002
+  rotate: false
+  xy: 2, 116
+  size: 928, 277
+  orig: 928, 793
+  offset: 0, 321
+  index: 7
+Layer_0003
+  rotate: false
+  xy: 932, 476
+  size: 898, 272
+  orig: 928, 793
+  offset: 30, 63
+  index: 6
+Layer_0004_Lights
+  rotate: false
+  xy: 932, 182
+  size: 603, 220
+  orig: 928, 793
+  offset: 13, 115
+  index: -1
+Layer_0005
+  rotate: false
+  xy: 932, 750
+  size: 928, 271
+  orig: 928, 793
+  offset: 0, 64
+  index: 5
+Layer_0006
+  rotate: false
+  xy: 932, 1296
+  size: 928, 271
+  orig: 928, 793
+  offset: 0, 64
+  index: 4
+Layer_0007_Lights
+  rotate: false
+  xy: 932, 2
+  size: 479, 178
+  orig: 928, 793
+  offset: 248, 157
+  index: -1
+Layer_0008
+  rotate: false
+  xy: 932, 1023
+  size: 928, 271
+  orig: 928, 793
+  offset: 0, 64
+  index: 3
+Layer_0009
+  rotate: false
+  xy: 932, 1569
+  size: 928, 414
+  orig: 928, 793
+  offset: 0, 0
+  index: 2
+Layer_0010
+  rotate: false
+  xy: 2, 1190
+  size: 928, 793
+  orig: 928, 793
+  offset: 0, 0
+  index: 1
+Layer_0011
+  rotate: false
+  xy: 2, 395
+  size: 928, 793
+  orig: 928, 793
+  offset: 0, 0
+  index: 0

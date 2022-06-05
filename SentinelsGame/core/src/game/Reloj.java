@@ -1,4 +1,4 @@
-package Enemigos.game;
+package game;
 
 public class Reloj extends Thread{
     //Construye un nuevo hilo.

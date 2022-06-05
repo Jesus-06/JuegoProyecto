@@ -37,12 +37,11 @@ public class Enemigo {
 
     }
 
-    public void update(Body body, float delta){
+    public void update(Body body, float delta, float accelX){
         position.x = body.getPosition().x;
         position.y = body.getPosition().y;
 
         velocity = body.getLinearVelocity();
-
 
         if(didDuck){
             isDucking = true;
@@ -57,6 +56,17 @@ public class Enemigo {
             isJumping = true;
             stateTime = 0;
             velocity.y = JUMP_SPEED;
+        }
+
+        if(accelX == -1){
+            velocity.x += -WALK_SPEED;
+            isWalking = !isJumping && !isFalling;
+        } else if(accelX == 1){
+            velocity.x += WALK_SPEED;
+            isWalking = !isJumping && !isFalling;
+        } else {
+            velocity.x = 0;
+            isWalking = false;
         }
 
         if(isJumping){

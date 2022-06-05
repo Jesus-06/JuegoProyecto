@@ -2,7 +2,7 @@ package PersonajePrincipal;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import Enemigos.game.PantallaJuego;
+import game.PantallaJuego;
 
 public class Night {
 
@@ -53,7 +53,6 @@ public class Night {
 		position.y = body.getPosition().y;
 
 		velocity = body.getLinearVelocity();
-
 
 		if(didDuck){
 			isDucking = true;

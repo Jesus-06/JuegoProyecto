@@ -1,7 +1,7 @@
 package com.sentinels.game;
 
-import Enemigos.game.Reloj;
-import Enemigos.game.Sentinels;
+import game.Reloj;
+import game.Sentinels;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 

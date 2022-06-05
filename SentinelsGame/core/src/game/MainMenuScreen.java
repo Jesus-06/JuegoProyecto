@@ -1,4 +1,4 @@
-package Enemigos.game;
+package game;
 
 import java.util.Timer;
 import java.util.TimerTask;

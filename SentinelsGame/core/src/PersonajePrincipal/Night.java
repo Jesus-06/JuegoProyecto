@@ -2,10 +2,12 @@ package PersonajePrincipal;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.sentinels.game.PantallaJuego;
+import Enemigos.game.PantallaJuego;
 
 public class Night {
 
+	public static final boolean STATE = false;
+	
 	public static final float ANCHO = 45;
 	public static final float ALTURA = 95;
 
@@ -16,6 +18,8 @@ public class Night {
 
 	public static final float WALK_SPEED = 9000;
 	public static final float JUMP_SPEED = 3000;
+
+
     public static int corazones =3;
 
 	public static int vida = 100;
@@ -42,6 +46,7 @@ public class Night {
 		position = new Vector2(ancho, alto);
 
 	}
+
 
 	public void update(Body body, float delta, float accelX){
 		position.x = body.getPosition().x;

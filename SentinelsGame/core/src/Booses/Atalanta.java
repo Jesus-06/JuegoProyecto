@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 public class Atalanta {
 
+
     public static final float ANCHO = 50;
     public static final float ALTURA = 80;
 

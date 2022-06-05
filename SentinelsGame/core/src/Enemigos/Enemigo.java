@@ -72,9 +72,6 @@ public class Enemigo {
             }
         }
 
-
-
-
         body.setLinearVelocity(velocity);
         stateTime += delta;
 

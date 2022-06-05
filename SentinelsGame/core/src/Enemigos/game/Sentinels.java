@@ -1,9 +1,6 @@
-package com.sentinels.game;
+package Enemigos.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 // Clase principal Juego
 public class Sentinels extends Game{

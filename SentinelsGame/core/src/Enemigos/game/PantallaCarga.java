@@ -1,4 +1,4 @@
-package com.sentinels.game;
+package Enemigos.game;
 
 import com.badlogic.gdx.Screen;
 

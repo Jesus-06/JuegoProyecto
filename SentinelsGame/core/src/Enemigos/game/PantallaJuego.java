@@ -1,4 +1,4 @@
-package com.sentinels.game;
+package Enemigos.game;
 
 import Enemigos.AssetsEnemigo;
 import Enemigos.Enemigo;
@@ -24,6 +24,9 @@ public class PantallaJuego extends SettingsScreen {
 	private Pixmap p1,p2;
 	Sentinels sent;
 
+	//Cuerpos de los objetos
+	BodyDef bd_night,bd_enemigo;
+
 	//Objetos en el juego
 	Night night;
 	Enemigo enemigo;
@@ -35,6 +38,9 @@ public class PantallaJuego extends SettingsScreen {
 	Array<Body> arrBoddies;
 
 	Texture textura_fondo;
+
+	FixtureDef fixDef_night,fixDef_enemigo ;
+
 
 	static float stateTime=0;
 	public static Animation<Sprite> fondoAnimado;
@@ -73,7 +79,7 @@ public class PantallaJuego extends SettingsScreen {
 				atlas.createSprite("Layer_00010"),
 				atlas.createSprite("Layer_00011")
 		);
-
+		world.setContactListener(new Collision());
 		piso();
 		createNight();
 		createEnemigo();
@@ -112,21 +118,22 @@ public class PantallaJuego extends SettingsScreen {
 	private void createNight(){
 		night = new Night(200, 270);
 
-		BodyDef bd = new BodyDef();
-		bd.position.x = night.position.x;
-		bd.position.y = night.position.y;
-		bd.type = BodyType.DynamicBody;
+		bd_night = new BodyDef();
+		bd_night.position.x = night.position.x;
+		bd_night.position.y = night.position.y;
+		bd_night.type = BodyType.DynamicBody;
+		bd_night.gravityScale=5;
 
 		PolygonShape shape = new PolygonShape();
 		shape.setAsBox(Night.ANCHO, Night.ALTURA);
 
-		FixtureDef fixDef = new FixtureDef();
-		fixDef.shape = shape;
-		fixDef.density = 0;
-		fixDef.friction = 0;
+		fixDef_night = new FixtureDef();
+		fixDef_night.shape = shape;
+		fixDef_night.density = 0;
+		fixDef_night.friction = 0;
 
-		Body body = world.createBody(bd);
-		body.createFixture(fixDef);
+		Body body = world.createBody(bd_night);
+		body.createFixture(fixDef_night);
 		body.setUserData(night);
 		shape.dispose();
 	}
@@ -134,22 +141,23 @@ public class PantallaJuego extends SettingsScreen {
 	private void createEnemigo(){
 		enemigo = new Enemigo(900, 250);
 
-		BodyDef bd = new BodyDef();
-		bd.position.x = enemigo.position.x;
-		bd.position.y = enemigo.position.y;
-		bd.type = BodyType.StaticBody;
+		bd_enemigo = new BodyDef();
+		bd_enemigo.position.x = enemigo.position.x;
+		bd_enemigo.position.y = enemigo.position.y;
+		bd_enemigo.type = BodyType.StaticBody;
 
 		PolygonShape shape = new PolygonShape();
 		shape.setAsBox(Enemigo.ANCHO, Enemigo.ALTURA);
 
-		FixtureDef fixDef = new FixtureDef();
-		fixDef.shape = shape;
-		fixDef.density = 0;
+		fixDef_enemigo = new FixtureDef();
+		fixDef_enemigo.shape = shape;
+		fixDef_enemigo.density = 0;
 
-		Body body = world.createBody(bd);
-		body.createFixture(fixDef);
+		Body body = world.createBody(bd_enemigo);
+		body.createFixture(fixDef_enemigo);
 		body.setUserData(enemigo);
 		shape.dispose();
+
 	}
 
 	@Override
@@ -158,8 +166,6 @@ public class PantallaJuego extends SettingsScreen {
 		reproductor.setLooping(true);
 		//reproductor.play();
 
-		vidas ="X "+Night.corazones;
-		puntuacion ="X "+Night.puntuacion;
 
 		p1 = new Pixmap(Gdx.files.internal("Night/Barra_de_vida/1.png"));
 		p2 = new Pixmap(510, 350, p1.getFormat());
@@ -185,7 +191,8 @@ public class PantallaJuego extends SettingsScreen {
 	public void render(float delta) {
 		camUI.update();
 		spBatch.setProjectionMatrix(camUI.combined);
-
+		vidas ="X "+Night.corazones;
+		puntuacion ="X "+Night.puntuacion;
 		Gdx.gl.glClearColor(0,0,0,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -209,6 +216,15 @@ public class PantallaJuego extends SettingsScreen {
 
 		float accelX = 0;
 
+		
+		if(Night.vida<=0&&Night.corazones<=0){
+
+
+		}else if(Night.vida<=0){
+			Night.corazones--;
+			Night.vida=100;
+
+		}
 		// Creación de los movimientos y cuerpos de los personajes en el mundo
 
 		if(Gdx.input.isKeyPressed((Keys.LEFT)))
@@ -316,5 +332,54 @@ public class PantallaJuego extends SettingsScreen {
 	public void dispose() {
 		AssetsNight.dispose();
 		world.dispose();
+	}
+
+	//COLOSIONES
+	class Collision implements ContactListener{
+
+		@Override
+		public void beginContact(Contact contact) {
+			Fixture a = contact.getFixtureA();
+			Fixture b = contact.getFixtureB();
+			if(a.getBody().getUserData() instanceof Night){
+				beginContactNight(a,b);
+			}else if(a.getBody().getUserData() instanceof Enemigo){
+				beginContactNight(b,a);
+			}
+
+		}
+		private void beginContactNight(Fixture night_2,Fixture fixElse){
+		Object somethingElse = fixElse.getBody().getUserData();
+			if(somethingElse instanceof Enemigo){
+				System.out.println("ME ESTA TOCANDOOOO");
+				Night.vida-=10;
+				System.out.println("Vida de night: "+ Night.vida);
+				System.out.println(Night.corazones);
+			}
+			else if(somethingElse instanceof Enemigo && night.isDefending){
+				System.out.println("DEFENDIDO");
+			}
+			else if(somethingElse instanceof Enemigo && night.isAttacking){
+				Enemigo.vida-=30;
+				System.out.println("Vida de Enemigo: "+ Enemigo.vida);
+			}
+			else if(somethingElse instanceof Enemigo && night.isWalking){
+				System.out.println("ESTABA CAMINDANDOOOOOOOOOOOOOOOOOO");
+			}
+		}
+		@Override
+		public void endContact(Contact contact) {
+
+		}
+
+		@Override
+		public void preSolve(Contact contact, Manifold oldManifold) {
+
+		}
+
+		@Override
+		public void postSolve(Contact contact, ContactImpulse impulse) {
+
+		}
 	}
 }

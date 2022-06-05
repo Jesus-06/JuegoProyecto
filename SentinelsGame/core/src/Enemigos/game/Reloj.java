@@ -1,9 +1,9 @@
-package com.sentinels.game;
+package Enemigos.game;
 
 public class Reloj extends Thread{
     //Construye un nuevo hilo.
 
-    Reloj(String nombre){
+    public Reloj(String nombre){
         //super se usa para llamar aj versión del constructor de Thread
         super(nombre);
 
@@ -13,6 +13,7 @@ public class Reloj extends Thread{
         try  {
             while (true) {
                 PantallaJuego.stateTime ++;
+
                 Thread.sleep(70);
                 if(PantallaJuego.stateTime==37){
                     PantallaJuego.stateTime=0;

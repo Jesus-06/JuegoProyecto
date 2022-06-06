@@ -17,7 +17,7 @@ public class AssetsAtalanta {
     static TextureAtlas atlas;
 
     public static void load(){
-        atlas = new TextureAtlas(Gdx.files.internal("Atalanta/atalantaFaseUno.txt"));
+        atlas = new TextureAtlas(Gdx.files.internal("Demonio/demonio.txt"));
 
         duck = atlas.createSprite("");
         fall = atlas.createSprite("atalanta_fase_uno1");

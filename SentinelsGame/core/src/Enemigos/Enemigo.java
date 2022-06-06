@@ -6,7 +6,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 public class Enemigo {
     public static final float ANCHO = 30;
     public static final float ALTURA = 70;
-
+    public static float TIME_TO_SPAWN_ENEMY=6f;
+    public static float timeToSpawnEnemy;
     public static final float WALK_FRAME_DURATION = 0.045f;
     public static final float JUMP_FRAME_DURATION = .55f;
     public static final float IDLE_FRAME_DURATION = .085f;
@@ -30,6 +31,9 @@ public class Enemigo {
     public boolean didDuck;
     public boolean didJump;
     public boolean didDefense;
+    public boolean agresivo;
+    public float acelx2 = 0f;
+    public boolean isRemove;
 
     public Enemigo(float ancho, float alto){
 
@@ -38,6 +42,7 @@ public class Enemigo {
     }
 
     public void update(Body body, float delta, float accelX){
+
         position.x = body.getPosition().x;
         position.y = body.getPosition().y;
 
@@ -106,4 +111,5 @@ public class Enemigo {
         }
 
     }
+
 }

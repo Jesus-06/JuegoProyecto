@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -19,14 +20,13 @@ import PersonajePrincipal.Night;
 
 public class PantallaJuego extends SettingsScreen {
 
-	boolean agresivo;
+
 	Sprite keyFrame_enemigo, keyFrame_night;
 	Music reproductor;
 	private Texture HUD;
 	private Pixmap p1,p2;
 	Sentinels sent;
 
-	float acelx2 = 0f;
 	//Cuerpos de los objetos
 	BodyDef bd_night,bd_enemigo;
 
@@ -39,7 +39,8 @@ public class PantallaJuego extends SettingsScreen {
 	public static int avancePiso = 0;
 	Box2DDebugRenderer renderer;
 	Array<Body> arrBoddies;
-
+	//Contenedor de enmigos
+	Array<Enemigo> arrenemigo;
 	Texture textura_fondo;
 
 	FixtureDef fixDef_night,fixDef_enemigo ;
@@ -59,11 +60,12 @@ public class PantallaJuego extends SettingsScreen {
 		AssetsEnemigo.load();
 
 		gravity = new Vector2(0, -90);
-
+		Enemigo.timeToSpawnEnemy=1.5f;
 		world = new World(gravity, true);
 		renderer = new Box2DDebugRenderer();
 
 		arrBoddies = new Array<>();
+		arrenemigo = new Array<>();
 
 		reproductor = Gdx.audio.newMusic(Gdx.files.internal("Musica/Musica_de_fondo.mp3"));
 
@@ -82,15 +84,47 @@ public class PantallaJuego extends SettingsScreen {
 				atlas.createSprite("Layer_00010"),
 				atlas.createSprite("Layer_00011")
 		);
-		world.setContactListener(new Collision());
+
+
 		piso();
 		pared1();
 		pared2();
 		createNight();
-		createEnemigo();
+		world.setContactListener(new Collision());
+	}
+	private void addenemy(){
+
+		float x= SettingsScreen.PANTALLA_ANCHO;
+		float y= MathUtils.random() *0 + 270;
+		addenemy(x,y);
 
 	}
+ 	private void addenemy(float x, float y){
+		Enemigo obj;
+		obj=new Enemigo(x,y);
 
+		BodyDef bd_enemigo = new BodyDef();
+		bd_enemigo.position.x = x;
+		bd_enemigo.position.y = y;
+		bd_enemigo.type = BodyType.DynamicBody;
+		Body obody = world.createBody(bd_enemigo);
+		obody.setLinearVelocity(Enemigo.WALK_SPEED,0);
+
+		PolygonShape shape = new PolygonShape();
+		shape.setAsBox(obj.ANCHO, obj.ALTURA);
+
+		fixDef_enemigo = new FixtureDef();
+		fixDef_enemigo.shape = shape;
+		fixDef_enemigo.density = 0;
+
+		Body body = world.createBody(bd_enemigo);
+		body.createFixture(fixDef_enemigo);
+		body.setUserData(obj);
+		arrenemigo.add(obj);
+		shape.dispose();
+
+
+	}
 	public void loadFondo1(){
 
 		Sprite keyFrame;
@@ -152,7 +186,6 @@ public class PantallaJuego extends SettingsScreen {
 		Body body = world.createBody(bdPared2);
 		body.createFixture(fixDef);
 		shape.dispose();
-
 	}
 
 	private void createNight(){
@@ -176,28 +209,6 @@ public class PantallaJuego extends SettingsScreen {
 		body.createFixture(fixDef_night);
 		body.setUserData(night);
 		shape.dispose();
-	}
-
-	private void createEnemigo(){
-		enemigo = new Enemigo(900, 250);
-
-		bd_enemigo = new BodyDef();
-		bd_enemigo.position.x = enemigo.position.x;
-		bd_enemigo.position.y = enemigo.position.y;
-		bd_enemigo.type = BodyType.DynamicBody;
-
-		PolygonShape shape = new PolygonShape();
-		shape.setAsBox(Enemigo.ANCHO, Enemigo.ALTURA);
-
-		fixDef_enemigo = new FixtureDef();
-		fixDef_enemigo.shape = shape;
-		fixDef_enemigo.density = 0;
-
-		Body body = world.createBody(bd_enemigo);
-		body.createFixture(fixDef_enemigo);
-		body.setUserData(enemigo);
-		shape.dispose();
-
 	}
 
 	@Override
@@ -246,7 +257,9 @@ public class PantallaJuego extends SettingsScreen {
 		fuente.draw(spBatch,puntuacion, 250, 800);
 		loadFondo1();
 		drawNight();
-		drawEnemigo();
+		for(Enemigo obj : arrenemigo) {
+			drawEnemigo(obj);
+		}
 
 		spBatch.end();
 
@@ -255,17 +268,28 @@ public class PantallaJuego extends SettingsScreen {
 
 	private void updateCharacters(float delta){
 
+		for(int i = 0; i < arrenemigo.size;i++){
+			Enemigo e= arrenemigo.get(i);
+			if(e.isRemove){
+				arrenemigo.removeIndex(i);
+			}
+		}
+		enemigo.timeToSpawnEnemy+=delta;
+		if(enemigo.timeToSpawnEnemy>=enemigo.TIME_TO_SPAWN_ENEMY){
+			enemigo.timeToSpawnEnemy-=enemigo.TIME_TO_SPAWN_ENEMY;
+			addenemy();
+		}
 		float accelX = 0;
-		if(enemigo.vida==0){
-
+		if(enemigo.vida<=0){
+			enemigo.isRemove=true;
 		}
 		
-		if(night.vida<=0&&Night.corazones<=0){
+		if(night.vida<=0&&night.corazones<=0){
 
 
-		}else if(Night.vida<=0){
-			Night.corazones--;
-			Night.vida=100;
+		}else if(night.vida<=0){
+			night.corazones--;
+			night.vida=100;
 
 		}
 		// Creación de los movimientos y cuerpos de los personajes en el mundo
@@ -298,16 +322,14 @@ public class PantallaJuego extends SettingsScreen {
 		world.getBodies(arrBoddies);
 
 		for(Body body1 : arrBoddies){
-			if(body1.getUserData() instanceof  Night){
-				Night night1 = (Night) body1.getUserData();
-				night1.update(body1, delta, accelX);
-			}
-		}
-
-		for(Body body1 : arrBoddies){
 			if(body1.getUserData() instanceof  Enemigo){
-				Enemigo enemigo1 = (Enemigo) body1.getUserData();
-				enemigo1.update(body1, delta, acelx2);
+				enemigo = (Enemigo) body1.getUserData();
+				enemigo.update(body1, delta, enemigo.acelx2);
+
+			}
+			if(body1.getUserData() instanceof  Night){
+				night = (Night) body1.getUserData();
+				night.update(body1, delta, accelX);
 			}
 		}
 
@@ -340,15 +362,18 @@ public class PantallaJuego extends SettingsScreen {
 
 	}
 
-	private void drawEnemigo(){
-		if(!agresivo) {
-			keyFrame_enemigo = AssetsEnemigo.idle.getKeyFrame(enemigo.stateTime, true);
-		}else if(agresivo){
-			keyFrame_enemigo = AssetsEnemigo.attack.getKeyFrame(enemigo.stateTime, true);
-		}
-		keyFrame_enemigo.setPosition(enemigo.position.x - 100/2, enemigo.position.y - 170/2);
-		keyFrame_enemigo.setSize(90,190);
-		keyFrame_enemigo.draw(spBatch);
+	private void drawEnemigo(Enemigo obj){
+
+			if(!enemigo.agresivo) {
+				keyFrame_enemigo = AssetsEnemigo.idle.getKeyFrame(obj.stateTime, true);
+			}else if(enemigo.agresivo){
+				keyFrame_enemigo = AssetsEnemigo.attack.getKeyFrame(obj.stateTime, true);
+			}
+			keyFrame_enemigo.setPosition(obj.position.x - 100/2, obj.position.y - 170/2);
+			keyFrame_enemigo.setSize(90,190);
+			keyFrame_enemigo.draw(spBatch);
+
+
 	}
 
 	@Override
@@ -404,18 +429,18 @@ public class PantallaJuego extends SettingsScreen {
 				System.out.println("DEFENDIDO");
 			}
 			else if(somethingElse instanceof Enemigo && night.isAttacking){
-				enemigo.isAttacking=true;
-				enemigo.vida-=30;
-				System.out.println("Vida de Enemigo: "+ Enemigo.vida);
+				((Enemigo) somethingElse).isAttacking=true;
+				((Enemigo) somethingElse).vida-=30;
+				System.out.println("Vida de Enemigo: "+ ((Enemigo) somethingElse).vida);
 			}
 			else if(somethingElse instanceof Enemigo){
 
 				enemigo.isAttacking=true;
 				System.out.println("ME ESTA TOCANDOOOO");
 				night.vida-=10;
-				System.out.println("Vida de night: "+ Night.vida);
-				acelx2=-1;
-				agresivo=true;
+				System.out.println("Vida de night: "+night.vida);
+				enemigo.acelx2=-1;
+				enemigo.agresivo=true;
 
 			}
 		}

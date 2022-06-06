@@ -18,7 +18,6 @@ public class Night {
 	public static final float WALK_SPEED = 9000;
 	public static final float JUMP_SPEED = 3000;
 
-
     public static int corazones =3;
 
 	public static int vida = 100;

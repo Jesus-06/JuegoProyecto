@@ -1,5 +1,7 @@
 package game;
 
+import Booses.AssetsAtalanta;
+import Booses.Atalanta;
 import Enemigos.AssetsEnemigo;
 import Enemigos.Enemigo;
 import PersonajePrincipal.AssetsNight;
@@ -22,18 +24,19 @@ import PersonajePrincipal.Night;
 public class PantallaJuego extends SettingsScreen {
 
 
-	Sprite keyFrame_enemigo, keyFrame_night;
+	Sprite keyFrame_enemigo, keyFrame_night, keyFrame_atalanta;
 	Music reproductor;
 	private Texture HUD;
 	private Pixmap p1, p2;
 	Sentinels sent;
 
 	//Cuerpos de los objetos
-	BodyDef bd_night, bd_enemigo;
+	BodyDef bd_night, bd_atalanta;
 
 	//Objetos en el juego
 	Night night;
 	Enemigo enemigo;
+	Atalanta atalanta;
 	public static World world;
 	public static BodyDef bdPiso, bdPared1, bdPared2;
 
@@ -44,7 +47,7 @@ public class PantallaJuego extends SettingsScreen {
 	Array<Enemigo> arrenemigo;
 	Texture textura_fondo;
 
-	FixtureDef fixDef_night, fixDef_enemigo;
+	FixtureDef fixDef_night, fixDef_enemigo, fixDef_atalanta;
 
 
 	static float stateTime = 0;
@@ -59,6 +62,7 @@ public class PantallaJuego extends SettingsScreen {
 
 		AssetsNight.load();
 		AssetsEnemigo.load();
+		AssetsAtalanta.load();
 
 		gravity = new Vector2(0, -90);
 		enemigo.timeToSpawnEnemy = 1.5f;
@@ -91,6 +95,7 @@ public class PantallaJuego extends SettingsScreen {
 		pared1();
 		pared2();
 		createNight();
+		createAtalanta();
 		world.setContactListener(new Collision());
 	}
 
@@ -133,10 +138,6 @@ public class PantallaJuego extends SettingsScreen {
 		body.setUserData(enemigo);
 
 		arrenemigo.add(enemigo);
-
-
-		arrenemigo.add(enemigo);
-
 
 		shape.dispose();
 
@@ -231,6 +232,28 @@ public class PantallaJuego extends SettingsScreen {
 		shape.dispose();
 	}
 
+	private void createAtalanta() {
+		atalanta = new Atalanta(1200, 420);
+
+		bd_atalanta = new BodyDef();
+		bd_atalanta.position.x = atalanta.position.x;
+		bd_atalanta.position.y = atalanta.position.y;
+		bd_atalanta.type = BodyType.StaticBody;
+
+		PolygonShape shape = new PolygonShape();
+		shape.setAsBox(Atalanta.ANCHO, Atalanta.ALTURA);
+
+		fixDef_atalanta = new FixtureDef();
+		fixDef_atalanta.shape = shape;
+		fixDef_atalanta.density = 0;
+		fixDef_atalanta.friction = 0;
+
+		Body body = world.createBody(bd_atalanta);
+		body.createFixture(fixDef_atalanta);
+		body.setUserData(atalanta);
+		shape.dispose();
+	}
+
 	@Override
 	public void show() {
 
@@ -277,7 +300,7 @@ public class PantallaJuego extends SettingsScreen {
 		fuente.draw(spBatch, puntuacion, 250, 800);
 		loadFondo1();
 		drawNight();
-
+		drawAtalanta();
 		for (Enemigo obj : arrenemigo) {
 			drawEnemigo(obj);
 		}
@@ -368,6 +391,10 @@ public class PantallaJuego extends SettingsScreen {
 				night = (Night) body1.getUserData();
 				night.update(body1, delta, accelX);
 			}
+			if (body1.getUserData() instanceof Atalanta) {
+				atalanta = (Atalanta) body1.getUserData();
+				atalanta.update(body1, delta, atalanta.acelx3);
+			}
 		}
 
 	}
@@ -399,7 +426,6 @@ public class PantallaJuego extends SettingsScreen {
 
 
 		keyFrame_night.setPosition(night.position.x - 100 / 2, night.position.y - 190 / 2);
-		night.position.x += 10;
 		keyFrame_night.setSize(90, 190);
 		keyFrame_night.draw(spBatch);
 
@@ -416,6 +442,16 @@ public class PantallaJuego extends SettingsScreen {
 		keyFrame_enemigo.setSize(90, 190);
 		keyFrame_enemigo.draw(spBatch);
 
+
+	}
+
+	private void drawAtalanta() {
+
+		keyFrame_atalanta = AssetsAtalanta.idle.getKeyFrame(atalanta.stateTime, true);
+
+		keyFrame_atalanta.setPosition(atalanta.position.x - 700 / 2, atalanta.position.y - 489 / 2);
+		keyFrame_atalanta.setSize(700, 750);
+		keyFrame_atalanta.draw(spBatch);
 
 	}
 

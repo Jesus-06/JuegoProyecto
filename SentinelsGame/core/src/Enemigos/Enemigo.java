@@ -11,7 +11,6 @@ public class Enemigo {
     public static float TIME_TO_SPAWN_ENEMY=6f;
     public static float timeToSpawnEnemy;
     public static final float WALK_FRAME_DURATION = 0.045f;
-    public static final float JUMP_FRAME_DURATION = .55f;
     public static final float IDLE_FRAME_DURATION = .085f;
     public static final float ATTACK_FRAME_DURATION = .085f;
 

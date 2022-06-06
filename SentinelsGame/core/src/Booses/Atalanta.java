@@ -6,15 +6,20 @@ import com.badlogic.gdx.physics.box2d.Body;
 public class Atalanta {
 
 
-    public static final float ANCHO = 50;
-    public static final float ALTURA = 80;
+    public static final float ANCHO = 110;
+    public static final float ALTURA = 240;
 
-    public static final float WALK_FRAME_DURATION = 0.05f;
 
-    public static final float WALK_SPEED = 800;
-    public static final float JUMP_SPEED = 3000;
+    public static final float WALK_FRAME_DURATION = 0.045f;
+    public static final float HURT_FRAME_DURATION = .55f;
+    public static final float IDLE_FRAME_DURATION = .085f;
+    public static final float ATTACK_FRAME_DURATION = .085f;
+    public static final float DIE_FRAME_DURATION = .085f;
 
     public static int Vida;
+
+    public static final float WALK_SPEED = 9000;
+    public static final float JUMP_SPEED = 3000;
 
     public boolean isJumping;
     public boolean isFalling;
@@ -29,14 +34,16 @@ public class Atalanta {
     public boolean didDuck;
     public boolean didJump;
 
+    public float acelx3 = 0f;
+
     public Atalanta(float ancho, float alto){
         position = new Vector2(ancho, alto);
 
     }
 
     public void update(Body body, float delta, float accelX){
-        position.x = body.getPosition().x+10;
-        position.y = body.getPosition().y+10;
+        position.x = body.getPosition().x;
+        position.y = body.getPosition().y;
 
         velocity = body.getLinearVelocity();
 

@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -100,8 +101,7 @@ public class PantallaJuego extends SettingsScreen {
 
 	}
  	private void addenemy(float x, float y){
-		Enemigo obj;
-		obj=new Enemigo(x,y);
+		Enemigo obj=new Enemigo(x,y);
 
 		BodyDef bd_enemigo = new BodyDef();
 		bd_enemigo.position.x = x;
@@ -125,6 +125,7 @@ public class PantallaJuego extends SettingsScreen {
 
 
 	}
+
 	public void loadFondo1(){
 
 		Sprite keyFrame;
@@ -321,6 +322,18 @@ public class PantallaJuego extends SettingsScreen {
 		world.step(delta, 8, 6);
 		world.getBodies(arrBoddies);
 
+		for(Body body1 : arrBoddies){
+			if(body1.getUserData() instanceof  Enemigo){
+				enemigo = (Enemigo) body1.getUserData();
+				if (enemigo.isRemove){
+					arrenemigo.removeValue(enemigo, true);
+					world.destroyBody(body1);
+				}
+
+			}
+		}
+
+		world.getBodies(arrBoddies);
 		for(Body body1 : arrBoddies){
 			if(body1.getUserData() instanceof  Enemigo){
 				enemigo = (Enemigo) body1.getUserData();

@@ -2,6 +2,8 @@ package Enemigos;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import game.PantallaJuego;
 
 public class Enemigo {
     public static final float ANCHO = 30;
@@ -42,7 +44,6 @@ public class Enemigo {
     }
 
     public void update(Body body, float delta, float accelX){
-
         position.x = body.getPosition().x;
         position.y = body.getPosition().y;
 

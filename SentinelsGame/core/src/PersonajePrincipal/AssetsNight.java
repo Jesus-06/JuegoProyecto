@@ -10,10 +10,12 @@ public class AssetsNight {
     public static Sprite duck;
     public static Sprite fall;
     public static Sprite defense;
+    public static Sprite die_static;
     public static Animation<Sprite> idle;
     public static Animation<Sprite> jump;
     public static Animation<Sprite> walk;
     public static Animation<Sprite> attack;
+    public static Animation<Sprite> die;
     public static TextureAtlas atlas;
 
     public static void load(){
@@ -22,8 +24,15 @@ public class AssetsNight {
         duck = atlas.createSprite("muerte2");
         fall = atlas.createSprite("salto4");
         defense = atlas.createSprite("defender3");
+        die_static = atlas.createSprite("muerte5");
 
-
+        die = new Animation<Sprite>(Night.DIE_FRAM_DURATION,
+                atlas.createSprite("muerte1"),
+                atlas.createSprite("muerte2"),
+                atlas.createSprite("muerte3"),
+                atlas.createSprite("muerte4"),
+                atlas.createSprite("muerte5")
+                );
         idle = new Animation<Sprite>(Night.IDLE_FRAME_DURATION,
                 atlas.createSprite("quieto1"),
                 atlas.createSprite("quieto2"),

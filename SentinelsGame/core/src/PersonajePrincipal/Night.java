@@ -5,8 +5,6 @@ import com.badlogic.gdx.physics.box2d.Body;
 import game.PantallaJuego;
 
 public class Night {
-
-	public static final boolean STATE = false;
 	
 	public static final float ANCHO = 45;
 	public static final float ALTURA = 95;
@@ -15,6 +13,7 @@ public class Night {
 	public static final float JUMP_FRAME_DURATION = .55f;
 	public static final float IDLE_FRAME_DURATION = .35f;
 	public static final float ATTACK_FRAME_DURATION = .085f;
+	public static final float DIE_FRAM_DURATION = .085f;
 
 	public static final float WALK_SPEED = 9000;
 	public static final float JUMP_SPEED = 3000;
@@ -40,6 +39,8 @@ public class Night {
 	public boolean didDuck;
 	public boolean didJump;
 	public boolean didDefense;
+	public boolean isDead;
+	public boolean isDying;
 
 	public Night(float ancho, float alto){
 

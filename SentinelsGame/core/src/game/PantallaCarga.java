@@ -1,5 +1,6 @@
 package game;
 
+import DB.MySQLCLass;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,8 +13,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-public class PantallaCarga extends SettingsScreen {
+import java.sql.Connection;
 
+public class PantallaCarga extends SettingsScreen {
+    MySQLCLass con;
     public Texture fondo, personaje, play;
     public Skin skin;
     public Table table;
@@ -22,6 +25,10 @@ public class PantallaCarga extends SettingsScreen {
 
         super(sent);
 
+        //Conexión base de datos
+        con= new MySQLCLass();
+        Connection reg = con.getCOnnection();
+        con.insertaDatos(1,"","","","","","");
         table = new Table();
         table.setFillParent(true);
 

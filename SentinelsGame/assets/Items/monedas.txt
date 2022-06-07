@@ -1,0 +1,48 @@
+
+monedas.png
+size: 29, 29
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+monedas (1)
+  rotate: false
+  xy: 2, 11
+  size: 7, 7
+  orig: 16, 16
+  offset: 4, 4
+  index: -1
+monedas (2)
+  rotate: false
+  xy: 2, 2
+  size: 5, 7
+  orig: 16, 16
+  offset: 5, 4
+  index: -1
+monedas (3)
+  rotate: false
+  xy: 11, 11
+  size: 3, 7
+  orig: 16, 16
+  offset: 6, 4
+  index: -1
+monedas (4)
+  rotate: false
+  xy: 11, 20
+  size: 5, 7
+  orig: 16, 16
+  offset: 5, 4
+  index: -1
+monedas (6)
+  rotate: false
+  xy: 11, 20
+  size: 5, 7
+  orig: 16, 16
+  offset: 5, 4
+  index: -1
+monedas (5)
+  rotate: false
+  xy: 2, 20
+  size: 7, 7
+  orig: 16, 16
+  offset: 4, 4
+  index: -1

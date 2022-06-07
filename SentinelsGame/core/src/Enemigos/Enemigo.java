@@ -2,19 +2,17 @@ package Enemigos;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import game.PantallaJuego;
 
 public class Enemigo {
     public static final float ANCHO = 30;
     public static final float ALTURA = 70;
-    public static float TIME_TO_SPAWN_ENEMY=6f;
+    public static float TIME_TO_SPAWN_ENEMY=5f;
     public static float timeToSpawnEnemy;
     public static final float WALK_FRAME_DURATION = 0.045f;
     public static final float IDLE_FRAME_DURATION = .085f;
     public static final float ATTACK_FRAME_DURATION = .085f;
 
-    public static final float WALK_SPEED = 6;
+    public static final float WALK_SPEED = 0.2f;
     public static final float JUMP_SPEED = 3000;
     public static int vida = 100;
     public boolean isJumping;
@@ -22,7 +20,6 @@ public class Enemigo {
     public boolean isWalking;
     public boolean isDucking;
     public boolean isAttacking;
-    public boolean isDefending;
 
     public float stateTime = 0;
 
@@ -35,6 +32,7 @@ public class Enemigo {
     public boolean agresivo;
     public float acelx2 = 0f;
     public boolean isRemove;
+    public boolean ishurt;
 
     public Enemigo(float ancho, float alto){
 
@@ -64,10 +62,10 @@ public class Enemigo {
         }
 
         if(accelX == -1){
-            velocity.x += -WALK_SPEED;
+            velocity.x += -WALK_SPEED*Math.random()*1000;
             isWalking = !isJumping && !isFalling;
         } else if(accelX == 1){
-            velocity.x += WALK_SPEED;
+            velocity.x += WALK_SPEED*Math.random()*1000;
             isWalking = !isJumping && !isFalling;
         } else {
             velocity.x = 0;

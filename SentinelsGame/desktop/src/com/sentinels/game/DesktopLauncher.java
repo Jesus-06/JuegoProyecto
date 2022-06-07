@@ -1,7 +1,7 @@
 package com.sentinels.game;
 
-import game.Reloj;
-import game.Sentinels;
+import Game.Corazon;
+import Game.Sentinels;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
@@ -10,7 +10,7 @@ public class DesktopLauncher {
 
 	public static void main (String[] arg) {
 
-		Reloj r1 = new Reloj("#1");
+		Corazon r1 = new Corazon("#1");
 		Thread hiloR1 = new Thread(r1);
 		hiloR1.start();
 

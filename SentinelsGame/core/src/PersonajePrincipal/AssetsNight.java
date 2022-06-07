@@ -26,7 +26,7 @@ public class AssetsNight {
         defense = atlas.createSprite("defender3");
         die_static = atlas.createSprite("muerte5");
 
-        die = new Animation<Sprite>(Night.DIE_FRAM_DURATION,
+        die = new Animation<Sprite>(Night.DIE_FRAME_DURATION,
                 atlas.createSprite("muerte1"),
                 atlas.createSprite("muerte2"),
                 atlas.createSprite("muerte3"),

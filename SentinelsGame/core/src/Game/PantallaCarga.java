@@ -1,4 +1,4 @@
-package game;
+package Game;
 
 import DB.MySQLCLass;
 import com.badlogic.gdx.Gdx;
@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import java.sql.Connection;
 
 public class PantallaCarga extends SettingsScreen {
+    //Conexion a base de datos
     MySQLCLass con;
     public Texture fondo, personaje, play;
     public Skin skin;

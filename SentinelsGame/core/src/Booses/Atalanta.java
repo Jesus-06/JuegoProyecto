@@ -16,9 +16,9 @@ public class Atalanta {
     public static final float ATTACK_FRAME_DURATION = .085f;
     public static final float DIE_FRAME_DURATION = .085f;
 
-    public static int Vida;
+    public static int vida=3000;
 
-    public static final float WALK_SPEED = 9000;
+    public static final float WALK_SPEED = 1;
     public static final float JUMP_SPEED = 3000;
 
     public boolean isJumping;
@@ -26,22 +26,25 @@ public class Atalanta {
     public boolean isWalking;
     public boolean isDucking;
 
-    public float stateTime = 0;
+    public static float stateTime = 0;
 
     public Vector2 position;
     public Vector2 velocity;
 
     public boolean didDuck;
     public boolean didJump;
+    public boolean isAgressive;
 
-    public float acelx3 = 0f;
+    public boolean isAlive;
+    public int acelx2;
+    public static boolean isDead;
+
 
     public Atalanta(float ancho, float alto){
         position = new Vector2(ancho, alto);
-
     }
 
-    public void update(Body body, float delta, float accelX){
+    public void update(Body body, float delta){
         position.x = body.getPosition().x;
         position.y = body.getPosition().y;
 
@@ -60,10 +63,10 @@ public class Atalanta {
             velocity.y = JUMP_SPEED;
         }
 
-        if(accelX == -1){
+        if(acelx2 == -1){
             velocity.x += -WALK_SPEED;
             isWalking = !isJumping && !isFalling;
-        } else if(accelX == 1){
+        } else if(acelx2 == 1){
             velocity.x += WALK_SPEED;
             isWalking = !isJumping && !isFalling;
         } else {

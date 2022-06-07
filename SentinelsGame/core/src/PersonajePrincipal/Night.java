@@ -2,18 +2,19 @@ package PersonajePrincipal;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import game.PantallaJuego;
+import Game.PantallaJuego;
 
 public class Night {
 	
 	public static final float ANCHO = 45;
 	public static final float ALTURA = 95;
-
+	public static final float POSICION_INICIAL_X=200;
+	public static final float POSICION_INICIAL_Y=270;
 	public static final float WALK_FRAME_DURATION = 0.045f;
 	public static final float JUMP_FRAME_DURATION = .55f;
 	public static final float IDLE_FRAME_DURATION = .35f;
 	public static final float ATTACK_FRAME_DURATION = .085f;
-	public static final float DIE_FRAM_DURATION = .085f;
+	public static final float DIE_FRAME_DURATION = .085f;
 
 	public static final float WALK_SPEED = 9000;
 	public static final float JUMP_SPEED = 3000;
@@ -38,8 +39,9 @@ public class Night {
 	public boolean didDuck;
 	public boolean didJump;
 	public boolean didDefense;
-	public boolean isDead;
+	public static boolean isDead;
 	public boolean isDying;
+	public boolean isSound;
 
 	public Night(float ancho, float alto){
 
@@ -94,6 +96,7 @@ public class Night {
 			velocity.x = 0;
 			isWalking = false;
 		}
+
 
 		if(isJumping){
 			if(velocity.y <= 0){

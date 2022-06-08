@@ -2,6 +2,7 @@ package com.sentinels.game;
 
 import Game.Corazon;
 import Game.Sentinels;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
@@ -15,10 +16,12 @@ public class DesktopLauncher {
 		hiloR1.start();
 
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		//config.setWindowedMode(1920, 1080);
 		config.setForegroundFPS(400);
 		config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
 		
 		new Lwjgl3Application(new Sentinels(), config);
+
+		Gdx.app.exit();
+		System.exit(0);
 	}
 }

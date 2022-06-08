@@ -15,7 +15,6 @@ public class Corazon extends Thread{
         try  {
             while (!Night.isDead) {
                 PantallaJuego.stateTime ++;
-                System.out.println("Corazon");
                 Thread.sleep(70);
                 if(PantallaJuego.stateTime==37){
                     PantallaJuego.stateTime=0;

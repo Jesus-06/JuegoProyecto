@@ -2,6 +2,7 @@ package Game;
 
 import Booses.AssetsAtalanta;
 import Booses.Atalanta;
+import DB.MySQLCLass;
 import Enemigos.AssetsEnemigo;
 import Enemigos.Enemigo;
 import Objetos.AssetsBloque;
@@ -16,19 +17,37 @@ import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 
 import PersonajePrincipal.Night;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
 
 public class PantallaJuego extends SettingsScreen {
 	int barradevida = 0;
 	private static int NIVEL_ACTUAL = 0;
 	int enemigos_generados=0;
 	int enemigos_maximo_por_nivel=5;
+
+	Skin skin;
+	ImageButtonStyle imgBtn;
+	ImageButton imgSave;
+	Texture save;
+	TextureRegion saveRegion;
+	TextureRegionDrawable drawSave;
 
 	Sprite keyFrame_enemigo, keyFrame_night, keyFrame_atalanta, keyFrame_moneda;
 
@@ -82,11 +101,17 @@ public class PantallaJuego extends SettingsScreen {
 	public static Vector2 gravity;
 	String vidas, puntuacion;
 
+	MySQLCLass con;
+
 	//Constructor
 	public PantallaJuego(Sentinels sent) {
 		super(sent);
 		this.sent=sent;
 		atalanta=new Atalanta(-100,0);
+
+		//Conexión base de datos
+		con= new MySQLCLass();
+		final Connection reg = con.getCOnnection();
 
 		//Cargar assets de los objetos
 		AssetsBloque.load();
@@ -130,9 +155,36 @@ public class PantallaJuego extends SettingsScreen {
 		pared1();
 		pared2();
 		createNight();
-		//createAtalanta();
 		world.setContactListener(new Collision());
+
+		save = new Texture(Gdx.files.internal("save-game (1).png"));
+		saveRegion = new TextureRegion(save, 100, 100);
+		drawSave = new TextureRegionDrawable(saveRegion);
+
+		skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+		imgBtn = new ImageButtonStyle(skin.get(Button.ButtonStyle.class));
+		imgBtn.imageUp = drawSave;
+		imgSave = new ImageButton(imgBtn);
+		poner(imgSave);
+
+		imgSave.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				con.insertaDatos(CrearPerfil.PERFIL_USER, night.position.x, night.position.y, barradevida, NIVEL_ACTUAL, night.corazones, night.puntuacion);
+			}
+		});
+
+		Gdx.input.setInputProcessor(stage);
 	}
+
+	private void poner(Actor a) {
+
+		a.setPosition(1700, 940);
+
+		stage.addActor(a);
+
+	}
+
 	private void createNight() {
 		night = new Night(Night.POSICION_INICIAL_X, Night.POSICION_INICIAL_Y);
 
@@ -162,7 +214,6 @@ public class PantallaJuego extends SettingsScreen {
 		bd_atalanta = new BodyDef();
 		bd_atalanta.position.x = atalanta.position.x;
 		bd_atalanta.position.y = atalanta.position.y;
-		bd_atalanta.type = BodyType.DynamicBody;
 		bd_atalanta.type = BodyType.DynamicBody;
 
 		PolygonShape shape = new PolygonShape();
@@ -365,6 +416,11 @@ public class PantallaJuego extends SettingsScreen {
 		camUI.update();
 		spBatch.setProjectionMatrix(camUI.combined);
 
+		if (Gdx.input.isKeyPressed(Keys.ESCAPE)){
+			reproductor.stop();
+			sent.setScreen(new MainMenuScreen(sent));
+		}
+
 		vidas = "X " + Night.corazones;
 		puntuacion = "X " + Night.puntuacion;
 
@@ -403,11 +459,14 @@ public class PantallaJuego extends SettingsScreen {
 		}
 		spBatch.end();
 
+		stage.draw();
+		stage.act(delta);
+
 		//renderer.render(world, camUI.combined);
 	}
 
 	private void updateCharacters(float delta) {
-		if(NIVEL_ACTUAL==1){
+		if(NIVEL_ACTUAL==10){
 			enemigos_maximo_por_nivel=0;
 			reproductor.stop();
 			reproductor= Gdx.audio.newMusic(Gdx.files.internal("Musica/Blue_Blood.mp3"));

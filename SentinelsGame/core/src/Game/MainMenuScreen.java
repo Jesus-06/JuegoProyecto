@@ -40,7 +40,7 @@ public class MainMenuScreen extends SettingsScreen {
 
 		t1 = new Timer();
 
-		p1 = new Pixmap(Gdx.files.internal("logo_transparente.png"));
+		p1 = new Pixmap(Gdx.files.internal("logo_transparente.PNG"));
 		p2 = new Pixmap(550, 500, p1.getFormat());
 		p2.drawPixmap(p1,
 				0, 0, p1.getWidth(), p1.getHeight(),
@@ -75,7 +75,7 @@ public class MainMenuScreen extends SettingsScreen {
 			public void changed(ChangeEvent event, Actor actor) {
 
 				reproductor.stop();
-				sent.setScreen(new PantallaJuego(sent));
+				sent.setScreen(new CrearPerfil(sent));
 				dispose();
 
 			}
@@ -122,7 +122,6 @@ public class MainMenuScreen extends SettingsScreen {
 
 		stage.addActor(table);
 		Gdx.input.setInputProcessor(stage);
-
 		poner(btLogo);
 	}
 
@@ -136,18 +135,6 @@ public class MainMenuScreen extends SettingsScreen {
 
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){
-
-			reproductor.stop();
-			b1.addAction(Actions.parallel(Actions.moveBy(0, 700, 7f)));
-			b2.addAction(Actions.parallel(Actions.moveBy(0, 700, 7f)));
-			b3.addAction(Actions.parallel(Actions.moveBy(0, 700, 7f)));
-			btLogo.addAction(Actions.parallel(Actions.moveBy(0, 700, 7f)));
-			rep2.play();
-
-			t1.schedule(new StopTask(), (long) (1.5*1000));
-		}
 
 		spBatch.begin();
 		spBatch.draw(texture, 0, 0 );

@@ -1,10 +1,7 @@
 package DB;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MySQLCLass {
 
@@ -12,17 +9,21 @@ public class MySQLCLass {
     private static Connection conn;
     private static final String user= "root";
     private static final String password="admin";
-    private static final String url="jdbc:mysql://localhost:3306/darksentinels";
+    private static final String url="jdbc:mysql://localhost:3306/sentinels";
 
     public MySQLCLass()  {
         conn =null;
         try {
-            conn= DriverManager.getConnection(url,user,password);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn= DriverManager.getConnection(url, user, password);
+            stmt = conn.createStatement();
             if(conn!=null){
                 System.out.println("Conexion establecida...");
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
 
@@ -36,20 +37,47 @@ public class MySQLCLass {
             System.out.println("Conexion terminada...");
         }
     }
-    public void insertaDatos(int id,String perfil,String personaje_name,String personaje_vida,String personaje_puntuacion,String personaje_x,String personaje_y){
+    public void insertaDatos(String perfil,float personaje_x,float personaje_y, float barra_vida,float nivel_juego, float corazones, float puntuacion){
         try {
-            stmt = conn.createStatement();
+            stmt.executeUpdate( "INSERT INTO jugadores VALUES('"+ perfil + "'," + personaje_x + ", " + personaje_y + ", " + barra_vida + ", " + nivel_juego + ", " + corazones + ", " + puntuacion + ")");
 
-            stmt.executeUpdate( "INSERT INTO perfil VALUES("+id+",'2')" );
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-    public void recogerDatos(){
+    public void eliminarDatos(String perfil){
+
+        try{
+        stmt.executeUpdate("DELETE FROM jugadores WHERE idJugadores = '" + perfil +"'");
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 
     }
-    public void eliminarDatos(){
+    public ResultSet Consulta(String nombre) {
+        ResultSet resultado = null;
 
+        try {
+
+            resultado = stmt.executeQuery("SELECT * FROM jugadores WHERE idJugadores = '" + nombre +"'");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultado;
+    }
+
+    public ResultSet Consulta2() {
+        ResultSet resultado = null;
+
+        try {
+
+            resultado = stmt.executeQuery("SELECT id Jugadores FROM jugadores ");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultado;
     }
 }

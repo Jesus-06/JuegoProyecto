@@ -68,16 +68,14 @@ public class MySQLCLass {
         return resultado;
     }
 
-    public ResultSet Consulta2() {
-        ResultSet resultado = null;
-
+    public void actualizarDatos(String perfil,float personaje_x,float personaje_y, float barra_vida,float nivel_juego, float corazones, float puntuacion){
         try {
-
-            resultado = stmt.executeQuery("SELECT id Jugadores FROM jugadores ");
+            stmt.executeUpdate( "UPDATE jugadores SET nightX = " + personaje_x + ", nightY = " + personaje_y + ", barraVida = " + barra_vida + ", nivelJuego = " + nivel_juego + ", corazones = " + corazones + ", puntuacion = " + puntuacion + " WHERE idJugadores = '" + perfil + "'");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return resultado;
+
     }
+
 }

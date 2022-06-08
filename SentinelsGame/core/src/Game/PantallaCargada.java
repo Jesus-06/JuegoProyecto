@@ -107,7 +107,7 @@ public class PantallaCargada extends SettingsScreen {
     ResultSet resultado;
 
     //Constructor
-    public PantallaCargada(Sentinels sent, String perfil) {
+    public PantallaCargada(Sentinels sent, final String perfil) {
         super(sent);
         this.sent=sent;
         atalanta=new Atalanta(-100,0);
@@ -174,9 +174,7 @@ public class PantallaCargada extends SettingsScreen {
         imgSave.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-
-                con.insertaDatos("Joker", night.position.x, night.position.y, barradevida, NIVEL_ACTUAL, night.corazones, night.puntuacion);
-
+                con.actualizarDatos(perfil, night.position.x, night.position.y, barradevida, NIVEL_ACTUAL, night.corazones, night.puntuacion);
             }
         });
 

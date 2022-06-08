@@ -54,6 +54,7 @@ public class PantallaJuego extends SettingsScreen {
 	//Plataforma
 	Bloque platform;
 	Music reproductor;
+	public static boolean status = false;
 
 	//Textura
 	private Texture keyFrame_block;
@@ -108,7 +109,7 @@ public class PantallaJuego extends SettingsScreen {
 		super(sent);
 		this.sent=sent;
 		atalanta=new Atalanta(-100,0);
-
+		status = true;
 		//Conexión base de datos
 		con= new MySQLCLass();
 		final Connection reg = con.getCOnnection();

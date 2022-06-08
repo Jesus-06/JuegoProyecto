@@ -1,5 +1,6 @@
 package PersonajePrincipal;
 
+import Game.PantallaCargada;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import Game.PantallaJuego;
@@ -109,8 +110,14 @@ public class Night {
 			if(velocity.y >= 0){
 				isFalling = false;
 				stateTime = 0;
-				PantallaJuego.gravity.set(0,-90);
-				PantallaJuego.world.setGravity(PantallaJuego.gravity);
+
+				if(PantallaJuego.status == true) {
+					PantallaJuego.gravity.set(0, -90);
+					PantallaJuego.world.setGravity(PantallaJuego.gravity);
+				}else {
+					PantallaCargada.gravity.set(0, -90);
+					PantallaCargada.world.setGravity(PantallaCargada.gravity);
+				}
 				isWalking = false;
 			}
 		}

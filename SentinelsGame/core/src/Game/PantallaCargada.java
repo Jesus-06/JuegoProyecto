@@ -442,6 +442,7 @@ public class PantallaCargada extends SettingsScreen {
         spBatch.setProjectionMatrix(camUI.combined);
 
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)){
+            reproductor.stop();
             sent.setScreen(new MainMenuScreen(sent));
         }
 
